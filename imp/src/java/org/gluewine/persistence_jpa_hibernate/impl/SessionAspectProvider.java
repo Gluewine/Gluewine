@@ -660,8 +660,9 @@ public class SessionAspectProvider implements AspectProvider, CommandProvider, C
                                     logger.debug("Checking SQL File : " + name);
                                     List<String> content = new ArrayList<String>();
                                     reader = new BufferedReader(new InputStreamReader(jar, "UTF-8"));
-                                    while (reader.ready())
-                                        content.add(reader.readLine());
+                                    String line;
+                                    while ((line = reader.readLine()) != null)
+                                        content.add(line);
 
                                     List<SQLStatement> stmts = new ArrayList<SQLStatement>();
 
