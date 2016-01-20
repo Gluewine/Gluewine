@@ -408,9 +408,10 @@ public final class ConsoleClient implements Runnable, Completer, AnsiCodes
         List<String> cmds = new ArrayList<String>();
         try (BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8")))
         {
-            while (in.ready())
+            String line;
+            while ((line = in.readLine()) != null)
             {
-                String line = in.readLine().trim();
+                line = line.trim();
                 if (line.length() > 0) cmds.add(line);
             }
         }

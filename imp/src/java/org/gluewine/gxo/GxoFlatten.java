@@ -256,10 +256,10 @@ public final class GxoFlatten
             try
             {
                 in = new BufferedReader(new FileReader(f));
-                while (in.ready())
+                String s;
+                while ((s = in.readLine()) != null)
                 {
-                    String s = in.readLine();
-                    if (s != null && !s.trim().startsWith("#") && s.trim().length() > 0)
+                    if (!s.trim().startsWith("#") && s.trim().length() > 0)
                         files.add(s);
                 }
             }

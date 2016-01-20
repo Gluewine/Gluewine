@@ -901,10 +901,10 @@ public final class Launcher implements Runnable, DirectoryAnnotations
         try
         {
             reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
-            while (reader.ready())
+            String s;
+            while ((s = reader.readLine()) != null)
             {
-                String s = reader.readLine();
-                if (s != null && s.trim().length() > 0)
+                if (s.trim().length() > 0)
                 {
                     String[] split = s.split(";");
 

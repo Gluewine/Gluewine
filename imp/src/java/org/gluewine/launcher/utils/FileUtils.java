@@ -147,9 +147,10 @@ public final class FileUtils
         try
         {
             reader = new BufferedReader(new FileReader(file));
-            while (reader.ready())
+            String line;
+            while ((line = reader.readLine()) != null)
             {
-                String line = reader.readLine().trim();
+                line = line.trim();
                 if (!line.startsWith("#"))
                     content.add(line);
             }
