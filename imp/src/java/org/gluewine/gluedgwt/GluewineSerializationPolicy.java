@@ -56,15 +56,11 @@ public class GluewineSerializationPolicy extends SerializationPolicy implements 
      */
     private Class<?> substitute(Class<?> clazz)
     {
-        System.out.print("Looking for " + clazz + " ... ");
         Class<?> alias = aliases.get(clazz);
         if (alias != null)
         {
-            System.out.print(" Match: " + alias + " ... ");
             clazz = alias;
         }
-        System.out.println("Found " + clazz);
-
         return clazz;
     }
 
