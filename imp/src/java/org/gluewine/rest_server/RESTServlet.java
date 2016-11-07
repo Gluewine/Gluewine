@@ -416,8 +416,11 @@ public class RESTServlet extends GluewineServlet implements RepositoryListener<O
                         {
                             String s = executeMethod(rm, params, serializer);
                             if (logger.isTraceEnabled()) logger.trace("Serialized response: " + s);
-                            resp.setContentType(serializer.getResponseMIME());
-                            resp.setCharacterEncoding("utf8");
+                            if (resp.getContentType() == null)
+                            {
+                                resp.setContentType(serializer.getResponseMIME());
+                                resp.setCharacterEncoding("utf8");
+                            }
                             resp.getWriter().write(s);
                             resp.getWriter().flush();
                             resp.getWriter().close();
